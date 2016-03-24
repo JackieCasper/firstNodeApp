@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node Google Maps</title>
+  <link rel="stylesheet" href="public/style.css"/>
+</head>
+<body>
+ <h1> html page is rendered </h1>
+ <div id="map"></div>
+
+ <h1> html page is rendered </h1>
+ <script>
+   function initMap() {
+      var mapDiv = document.getElementById('map');
+      var map = new google.maps.Map(mapDiv, {
+        center: {lat: 44.540, lng: -78.546},
+        zoom: 8
+      });
+   }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+</body>
+</html>
