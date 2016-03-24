@@ -1,7 +1,8 @@
 # Node Chat App
-A chat app using node.js, socket.io, and morgan to dynamically update chat messages
+A chat app using node.js, express, socket.io, and morgan to dynamically update chat messages
 
 ## Packages
+* express
 * socket.io
 * morgan
 * nodemon
