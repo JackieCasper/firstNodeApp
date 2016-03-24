@@ -1,16 +1,26 @@
 {
-  "name": "firstNodeApp",
+  "name": "first-node-app",
   "version": "1.0.0",
-  "description": "my first socket.io app",
+  "description": "",
   "main": "server.js",
+  "dependencies": {
+    "node-static": "^0.7.7",
+    "save": "^2.3.0",
+    "socket.io": "^1.4.5"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaredmurphy/firstNodeApp.git"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "ejs": "~1.0.0",
-    "express": "^4.13.4",
-    "jquery": "^2.2.2"
-  }
+  "bugs": {
+    "url": "https://github.com/jaredmurphy/firstNodeApp/issues"
+  },
+  "homepage": "https://github.com/jaredmurphy/firstNodeApp#readme"
 }

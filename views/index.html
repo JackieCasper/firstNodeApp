@@ -1,23 +1,45 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Node Google Maps</title>
-  <link rel="stylesheet" href="public/style.css"/>
+  <title>Node Socket IO App</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+  <script src="/js/jquery.js"></script>
 </head>
 <body>
- <h1> html page is rendered </h1>
- <div id="map"></div>
+  <input id="name" type="text" placeholder="Enter your name">
+  <input id="message" name="message" placeholder="Enter your message">
+  <br>
+  <button id="send">Send</button>
 
- <h1> html page is rendered </h1>
- <script>
-   function initMap() {
-      var mapDiv = document.getElementById('map');
-      var map = new google.maps.Map(mapDiv, {
-        center: {lat: 44.540, lng: -78.546},
-        zoom: 8
-      });
-   }
+  <div id="chatbox">
+    <!-- contains chat messages -->
+  </div>
+
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+    var $name = $('#name');
+    var $message = $("#message");
+    var $chatbox = $("#chatbox");
+
+    socket.on("hello", function(message) {
+      console.log("hello from server, the admin is " + message.admin);
+    });
+
+    $("#send").on('click', function(event){
+      socket.emit("CLICK", {name: $name.val(), message: $message.val()});
+      $name.val('');
+      $message.val('');
+    });
+
+    socket.on("transmission", function(msg){
+      var $p = $("<p>");
+      $p.text(msg.name + ": " + msg.message);
+      $chatbox.append($p)
+    });
   </script>
-  <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+
 </body>
 </html>
